@@ -7,6 +7,15 @@ public class ColoredPlayer : ColoredObject
     // meant to be empty because the color of the player doesn't change on the rythm
     public override void changeColor(){}
 
+    private void Start()
+    {
+        init();
+        this.setCurrentColor(Colors.RED);
+        this.applyColor(getCurrentColor());
+        addAvailableColor();
+        addAvailableColor();
+    }
+
     public void rightClickColor()
     {
         int available = getNumAvailableColors();
@@ -21,10 +30,9 @@ public class ColoredPlayer : ColoredObject
         applyColor(getCurrentColor());
     }
 
-
-    // Update is called once per frame
-    void Update()
+    public Colors color()
     {
-        
+        return getCurrentColor();
     }
+
 }

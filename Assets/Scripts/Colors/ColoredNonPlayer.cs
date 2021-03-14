@@ -7,13 +7,26 @@ public class ColoredNonPlayer : ColoredObject
     [Tooltip("Set to true if the object doesn't change color")]
     public bool fixedColor = false;
 
+    public Colors[] colorList;
+
+    public bool isRandom = false;
+
+    private void Start()
+    {
+        if (colorList.Length == 0) { colorList = new Colors[]{ Colors.PINK};Debug.Log(this.name + " has no color specified"); }
+        init();
+        setCurrentColor(colorList[0]);
+        applyColor(getCurrentColor());
+    }
+
+
     public override void changeColor()
     {
         if (!fixedColor)
         {
-            Colors rand = getRandomColor();
-            applyColor(rand);
-            setCurrentColor(rand);
+            Colors col = isRandom ? getRandomColor() : getNextColor();
+            applyColor(col);
+            setCurrentColor(col);
         }
     }
 
@@ -31,4 +44,23 @@ public class ColoredNonPlayer : ColoredObject
         int ind = (int)Random.Range(0, availableColors.Count);
         return availableColors[ind];
     }
+
+    private Colors getNextColor()
+    {
+        int ind = indexCurrentColor();
+        return colorList[(ind + 1) % colorList.Length];
+    }
+
+    private int indexCurrentColor()
+    {
+        for(int i = 0; i < colorList.Length; i++)
+        {
+            if (colorList[i] == getCurrentColor())
+            {
+                return i;
+            }
+        }
+        return 0;
+    }
+
 }

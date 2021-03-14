@@ -17,15 +17,10 @@ public abstract class ColoredObject : MonoBehaviour
 	Color yellow = new Color(1, 1, 0, 1);
 	Color pink = new Color(1, 0.2f, 0.8f, 1);
 
-    [Tooltip("The initial color and the colors before will also be available")]
-    public Colors initialColor = Colors.RED;
     private Colors currentColor;
 
     private SpriteRenderer sprite;
 
-    [Tooltip("If the initial color is not the last available color, please define how much colors are available")]
-    [Range(2,5)]
-    public int nbColorsAvailable = 2;
     private int availableColors;
 
     // Return the value of the color
@@ -58,17 +53,10 @@ public abstract class ColoredObject : MonoBehaviour
         currentColor = c;
     }
 
-    void Start()
+    protected void init()
     {
         ColorManager.addColoredObject(this);
         sprite = GetComponent<SpriteRenderer>();
-        availableColors = nbColorsAvailable;
-        this.applyColor(initialColor);
-        currentColor = initialColor;
-        while (!isAvailable(initialColor))
-        {
-            addAvailableColor();
-        }
     }
 
     public void addAvailableColor()
@@ -100,7 +88,7 @@ public abstract class ColoredObject : MonoBehaviour
         }
     }
 
-    protected int getNumAvailableColors()
+    public int getNumAvailableColors()
     {
         return availableColors;
     }
@@ -126,5 +114,10 @@ public abstract class ColoredObject : MonoBehaviour
             return objsprite.color == getColor(this.getCurrentColor());
         }
         return false;
+    }
+
+    public bool isSameColor(ColoredObject obj)
+    {
+        return this.getCurrentColor() == obj.getCurrentColor();
     }
 }
