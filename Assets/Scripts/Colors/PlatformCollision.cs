@@ -18,7 +18,7 @@ public class PlatformCollision : MonoBehaviour
 
     private void Update()
     {
-        if(player!=null && platform!=null && !passThrough && !player.isSameColor(platform))
+        if(player!=null && platform!=null && !passThrough && !player.IsSameColor(platform))
         {
             Rigidbody2D body = player.transform.GetComponent<Rigidbody2D>();
             if (body != null) { body.WakeUp(); }
@@ -35,7 +35,7 @@ public class PlatformCollision : MonoBehaviour
             player = colid.GetComponent<ColoredPlayer>();
             if (player != null && platform != null)
             {
-                if (player.isSameColor(platform))
+                if (player.IsSameColor(platform))
                 {
                     Physics2D.IgnoreCollision(platformCollider, colid, false);
                 }
@@ -50,7 +50,7 @@ public class PlatformCollision : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (!passThrough && player != null && platform != null && !player.isSameColor(platform))
+        if (!passThrough && player != null && platform != null && !player.IsSameColor(platform))
         {
             Physics2D.IgnoreCollision(platformCollider, collision.transform.GetComponent<Collider2D>(), true);
             passThrough = true;

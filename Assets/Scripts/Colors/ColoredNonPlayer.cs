@@ -38,10 +38,9 @@ public class ColoredNonPlayer : ColoredObject
     private Colors getRandomColor()
     {
         List<Colors> availableColors = new List<Colors>();
-        for(int i = 0; i < 5; i++)
+        foreach(Colors col in colorList)
         {
-            Colors col = (Colors)i;
-            if (isAvailable(col) && col != getCurrentColor())
+            if (col != getCurrentColor())
             {
                 availableColors.Add(col);
             }

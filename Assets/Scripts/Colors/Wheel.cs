@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Wheel : MonoBehaviour
 {
     private Image img;
-    private Sprite wheel2;
+    public Sprite wheel2;
     public Sprite wheel3;
     public Sprite wheel4;
     public Sprite wheel5;
@@ -19,17 +19,15 @@ public class Wheel : MonoBehaviour
     void Start()
     {
         img = this.GetComponent<Image>();
-        wheel2 = img.sprite;
-        rotationDegree = 45;
-        status = player.getNumAvailableColors();
+        status = 1;
     }
 
     void Update()
     {
-        if (status != player.getNumAvailableColors())
+        if (status != player.GetNumAvailableColors())
         {
             transform.rotation = Quaternion.identity;
-            status = player.getNumAvailableColors();
+            status = player.GetNumAvailableColors();
             switch (status)
             {
                 case 2:
@@ -52,7 +50,7 @@ public class Wheel : MonoBehaviour
                     break;
             }
             transform.Rotate(Vector3.forward * rotationDegree / 2);
-            transform.Rotate(Vector3.forward * rotationDegree * (int)player.color()); 
+            transform.Rotate(Vector3.forward * rotationDegree * (int)player.GetColor()); 
         }
     }
 

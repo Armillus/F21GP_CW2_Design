@@ -21,8 +21,6 @@ public abstract class ColoredObject : MonoBehaviour
 
     private SpriteRenderer sprite;
 
-    private int availableColors;
-
     // Return the value of the color
     private Color getColor(Colors c)
     {
@@ -59,40 +57,6 @@ public abstract class ColoredObject : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
     }
 
-    public void addAvailableColor()
-    {
-        if (availableColors < 5) availableColors++;
-    }
-
-    public void removeAvailableColor()
-    {
-        if (availableColors > 2) availableColors--;
-    }
-
-    protected bool isAvailable(Colors c)
-    {
-        switch (c)
-        {
-            case Colors.RED:
-                return true;
-            case Colors.GREEN:
-                return true;
-            case Colors.BLUE:
-                return availableColors > 2;
-            case Colors.YELLOW:
-                return availableColors > 3;
-            case Colors.PINK:
-                return availableColors > 4;
-            default:
-                return false;
-        }
-    }
-
-    public int getNumAvailableColors()
-    {
-        return availableColors;
-    }
-
     // Method called when the color is updated by the time
     public abstract void changeColor();
 
@@ -101,7 +65,7 @@ public abstract class ColoredObject : MonoBehaviour
         sprite.color = getColor(c);
     }
 
-    public bool isSameColor(GameObject obj)
+    public bool IsSameColor(GameObject obj)
     {
         ColoredObject colobj = obj.GetComponent<ColoredObject>();
         if(colobj!=null)
@@ -116,7 +80,7 @@ public abstract class ColoredObject : MonoBehaviour
         return false;
     }
 
-    public bool isSameColor(ColoredObject obj)
+    public bool IsSameColor(ColoredObject obj)
     {
         return this.getCurrentColor() == obj.getCurrentColor();
     }
