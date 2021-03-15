@@ -7,13 +7,18 @@ public class ColoredNonPlayer : ColoredObject
     [Tooltip("Set to true if the object doesn't change color")]
     public bool fixedColor = false;
 
-    public Colors[] colorList;
+    public Colors[] colorList = { Colors.RED, Colors.BLUE, Colors.GREEN, Colors.YELLOW };
 
     public bool isRandom = false;
 
     private void Start()
     {
-        if (colorList.Length == 0) { colorList = new Colors[]{ Colors.PINK};Debug.Log(this.name + " has no color specified"); }
+        if (colorList.Length == 0)
+        { 
+            colorList = new Colors[]{ Colors.PINK};
+            Debug.Log(this.name + " has no color specified"); 
+        }
+
         init();
         setCurrentColor(colorList[0]);
         applyColor(getCurrentColor());
@@ -36,7 +41,7 @@ public class ColoredNonPlayer : ColoredObject
         for(int i = 0; i < 5; i++)
         {
             Colors col = (Colors)i;
-            if (isAvailable(col) && col!=getCurrentColor())
+            if (isAvailable(col) && col != getCurrentColor())
             {
                 availableColors.Add(col);
             }
