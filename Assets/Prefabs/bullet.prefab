@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9149322978074663718}
   - component: {fileID: 9105846454254489956}
   - component: {fileID: 5526362902296693724}
-  - component: {fileID: -1447027983299393136}
+  - component: {fileID: 2109624264364381834}
   m_Layer: 0
   m_Name: bullet
   m_TagString: Untagged
@@ -81,7 +81,7 @@ SpriteRenderer:
   m_Size: {x: 1.52, y: 0.32}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!50 &9105846454254489956
@@ -131,7 +131,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.52, y: 0.32}
   m_EdgeRadius: 0
---- !u!114 &-1447027983299393136
+--- !u!114 &2109624264364381834
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140,8 +140,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 5703490956428181724}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b342116eaf1c99243959926cf0300375, type: 3}
+  m_Script: {fileID: 11500000, guid: 33d7cd189cc1060448e3418e69d53272, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
+  speed: 1
   rb: {fileID: 9105846454254489956}
