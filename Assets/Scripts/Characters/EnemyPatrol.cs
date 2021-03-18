@@ -2,7 +2,7 @@
 
 public class EnemyPatrol : MonoBehaviour
 {
-
+    public int damages = 10;
     public float speed;
     public Transform[] waypoints;
     public SpriteRenderer graphics;
@@ -36,6 +36,7 @@ public class EnemyPatrol : MonoBehaviour
                 direction = -1;
             }
             col.gameObject.GetComponent<Player>().Pushed(direction);
+            col.gameObject.GetComponent<PlayerHealth>().TakeDamage(damages);
         }
     }
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(PlayerHealth))]
 public class Player : MonoBehaviour
 {
     public float speed = 1;
