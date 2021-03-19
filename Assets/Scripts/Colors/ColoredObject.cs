@@ -13,7 +13,7 @@ public abstract class ColoredObject : MonoBehaviour
     // Value of the colors
 	Color red = new Color(1, 0, 0, 1);
 	Color green = new Color(0, 1, 0, 1);
-	Color blue = new Color(0.3f, 0.3f, 1, 1);
+	Color blue = new Color(0, 0.3f, 1, 1);
 	Color yellow = new Color(1, 1, 0, 1);
 	Color pink = new Color(1, 0.2f, 0.8f, 1);
 
