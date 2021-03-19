@@ -23,11 +23,13 @@ public class HungerBar : MonoBehaviour
 
     public float basicIncrease = 10;
     private int framePause = 360;
-    private int healSpeed = 5;
+    private int healSpeed = 2;
     private int frameReduction = 200;
 
     [Range(1,8)]
     public int reductionSpeed = 1;
+
+    public PlayerHealth playerHealth;
     //public int healPercentage = 5;
 
     private int maxCounter;
@@ -69,7 +71,7 @@ public class HungerBar : MonoBehaviour
             if (healCounter > healSpeed * frameReduction/reductionSpeed)
             {
                 healCounter = 0;
-                Debug.Log("increase health");
+                if(playerHealth!=null)playerHealth.Heal(5);
             }
             else
             {
