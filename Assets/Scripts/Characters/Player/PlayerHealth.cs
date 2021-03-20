@@ -17,4 +17,10 @@ public class PlayerHealth : MonoBehaviour
     {
         healthBar.SetHealth(_currentHealth -= damage);
     }
+
+    public void Heal(float percents)
+    {
+        _currentHealth += (int)(((float) _currentHealth / 100f) * percents);
+        healthBar.SetHealth(_currentHealth);
+    }
 }

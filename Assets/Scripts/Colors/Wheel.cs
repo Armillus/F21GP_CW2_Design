@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Wheel : MonoBehaviour
 {
     private Image img;
+    public Sprite wheel1;
     public Sprite wheel2;
     public Sprite wheel3;
     public Sprite wheel4;
@@ -30,6 +31,10 @@ public class Wheel : MonoBehaviour
             status = player.GetNumAvailableColors();
             switch (status)
             {
+                case 1:
+                    img.sprite = wheel1;
+                    rotationDegree = 0;
+                    break;
                 case 2:
                     img.sprite = wheel2;
                     rotationDegree = 90;                  
