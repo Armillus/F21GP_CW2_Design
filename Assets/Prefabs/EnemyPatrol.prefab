@@ -73,10 +73,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2336825553980523900}
   - component: {fileID: 2336825553980523903}
-  - component: {fileID: 2336825553980523898}
   - component: {fileID: 2336825553980523901}
   - component: {fileID: 2336825553980523899}
   - component: {fileID: 2336825553980523896}
+  - component: {fileID: 5190520548414544029}
   m_Layer: 0
   m_Name: EnemyGraphics
   m_TagString: Untagged
@@ -148,20 +148,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!136 &2336825553980523898
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2336825553980523902}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.43566558
-  m_Height: 1.9068618
-  m_Direction: 1
-  m_Center: {x: -0.040186245, y: -0.10438422, z: 0}
 --- !u!114 &2336825553980523901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,6 +160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 481a92f4cad67614c9ff6f4c621c3de3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damages: 10
   speed: 1.5
   waypoints:
   - {fileID: 2336825553317308329}
@@ -214,6 +201,22 @@ MonoBehaviour:
   fixedColor: 0
   colorList: 0100000000000000
   isRandom: 0
+--- !u!70 &5190520548414544029
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2336825553980523902}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.06497065, y: -0.11581719}
+  m_Size: {x: 0.9350586, y: 1.9083655}
+  m_Direction: 0
 --- !u!1 &2336825553996853232
 GameObject:
   m_ObjectHideFlags: 0

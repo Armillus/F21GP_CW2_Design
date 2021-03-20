@@ -8,11 +8,14 @@ public class PredatorTracker : MonoBehaviour
     public GameObject player;
     public Animator animator = null;
     public Rigidbody2D rb = null;
+    public Transform leftZonePoint;
+    public Transform rightZonePoint;
 
     private Transform _target;
     private Vector2 _startScale = Vector2.one;
     private float _direction = 1.0f;
     private int health = 10;
+
     void Start()
     {
         _startScale = transform.localScale;
@@ -21,25 +24,22 @@ public class PredatorTracker : MonoBehaviour
 
     void Update()
     {
-        if (health <= 0)
+        if (health <= 0 || !_target)
         {
             return;
         }
-        if (_target.position.x - transform.position.x > 0)
-        {
-            _direction = 1;
-        }
-        else
-        {
-            _direction = -1;
-        }
-        Move();
         UpdateAnimation();
+        rb.velocity = new Vector2(0.0f, 0.0f);
+
+        if (!NotInArea())
+        {
+            Move();
+        }
     }
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.tag == "Player")
+        if (col.gameObject.tag == "Player" && !this.GetComponent<ColoredNonPlayer>().IsSameColor(col.gameObject))
         {
             col.gameObject.GetComponent<Player>().Pushed(_direction);
         }
@@ -47,8 +47,12 @@ public class PredatorTracker : MonoBehaviour
 
     private void Move()
     {
-       rb.velocity = new Vector2(_direction * speed, 0.0f);
-       //transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
+        if (leftZonePoint.position.x < transform.position.x &&
+            transform.position.x < rightZonePoint.position.x)
+        {
+            rb.velocity = new Vector2(_direction * speed, 0.0f);
+        }
+
     }
 
     private void UpdateAnimation()
@@ -70,6 +74,19 @@ public class PredatorTracker : MonoBehaviour
         if (health <= 0)
         {
             animator.SetBool("Dead", true);
+        }
+    }
+
+    private bool NotInArea()
+    {
+        if (leftZonePoint.position.x < _target.position.x && 
+            _target.position.x < rightZonePoint.position.x)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
         }
     }
 }

@@ -8,7 +8,7 @@ public class CameraManager : MonoBehaviour
  
     void FixedUpdate()
     {
-        if (player) // sinon un bool
+        if (player)
         {
             transform.position = new Vector3(player.transform.position.x, player.transform.position.y, transform.position.z);
         }

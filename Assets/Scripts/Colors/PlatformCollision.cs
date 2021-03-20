@@ -30,7 +30,8 @@ public class PlatformCollision : MonoBehaviour
     {
         passThrough = false;
         Collider2D colid = collision.transform.GetComponent<Collider2D>();
-        if(colid!=null && colid.CompareTag("Player"))
+
+        if (colid!=null && colid.CompareTag("Player"))
         {
             player = colid.GetComponent<ColoredPlayer>();
             if (player != null && platform != null)

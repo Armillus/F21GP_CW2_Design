@@ -29,7 +29,7 @@ public class EnemyPatrol : MonoBehaviour
     {
         float direction = 1;
 
-        if (col.gameObject.tag == "Player")
+        if (col.gameObject.tag == "Player" && !this.GetComponent<ColoredNonPlayer>().IsSameColor(col.gameObject))
         {
             if (col.transform.position.x - transform.position.x < 0)
             {
