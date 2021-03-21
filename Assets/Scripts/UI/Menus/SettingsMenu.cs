@@ -13,7 +13,7 @@ public class SettingsMenu : MonoBehaviour
 
     public void Start()
     {
-        gameObject.SetActive(false);
+        Screen.fullScreen = false;
 
         resolutions = AvailableResolutions();
         resolutionDropwdon.ClearOptions();
@@ -71,8 +71,6 @@ public class SettingsMenu : MonoBehaviour
 
     private bool IsCurrentResolution(Resolution res)
     {
-        Resolution current = Screen.currentResolution;
-
-        return res.width == current.width && res.height == current.height;
+        return Screen.width == res.width && Screen.height == res.height;
     }
 }
