@@ -25,6 +25,7 @@ public class Wheel : MonoBehaviour
 
     void Update()
     {
+        ClickCheck();
         if (status != player.GetNumAvailableColors())
         {
             transform.rotation = Quaternion.identity;
@@ -67,5 +68,17 @@ public class Wheel : MonoBehaviour
     public void ColorLeft()
     {
         transform.Rotate(Vector3.back * rotationDegree);
+    }
+
+    private void ClickCheck()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            ColorLeft();
+        }
+        else if (Input.GetMouseButtonDown(1))
+        {
+            ColorRight();
+        }
     }
 }

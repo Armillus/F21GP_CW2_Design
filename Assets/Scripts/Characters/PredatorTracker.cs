@@ -39,9 +39,18 @@ public class PredatorTracker : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.tag == "Player" && !this.GetComponent<ColoredNonPlayer>().IsSameColor(col.gameObject))
+        if (col.gameObject.tag == "Player")
         {
-            col.gameObject.GetComponent<Player>().Pushed(_direction);
+            if (!this.GetComponent<ColoredNonPlayer>().IsSameColor(col.gameObject))
+            {
+                col.gameObject.GetComponent<Player>().Pushed(_direction);
+                // ADD damages
+            }
+            else
+            {
+                col.gameObject.GetComponent<Player>().FeedPlayer(); // duplicate to feed more
+                this.TakeDamage(health);
+            }
         }
     }
 
@@ -68,14 +77,42 @@ public class PredatorTracker : MonoBehaviour
         }
         transform.localScale = new Vector2(Mathf.Sign(_direction) * _startScale.x, _startScale.y);
     }
+
+
     public void TakeDamage(int damage)
     {
         health -= damage;
         if (health <= 0)
         {
             animator.SetBool("Dead", true);
+            CapsuleCollider2D caps = this.GetComponent<CapsuleCollider2D>();
+            if (caps != null)
+            {
+                caps.enabled = false;
+            }
+            BoxCollider2D box = this.GetComponent<BoxCollider2D>();
+            if (box != null)
+            {
+                box.enabled = false;
+            }
+            Invoke("FadeOut", 0.7f);
         }
     }
+
+
+    private void FadeOut()
+    {
+        Color c = this.transform.GetComponent<SpriteRenderer>().color;
+        this.transform.GetComponent<SpriteRenderer>().color = new Color(c.r, c.g, c.b, 0.8f);
+        Invoke("DestroyObj", 1.0f);
+    }
+
+
+    private void DestroyObj()
+    {
+        Destroy(this.transform.parent.gameObject);
+    }
+
 
     private bool NotInArea()
     {

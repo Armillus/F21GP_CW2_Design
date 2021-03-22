@@ -11,6 +11,7 @@ public class EnemyPatrol : MonoBehaviour
     private Transform target;
     private int destPoint = 0;
     private int health = 10;
+
     void Start()
     {
         target = waypoints[0];
@@ -29,14 +30,22 @@ public class EnemyPatrol : MonoBehaviour
     {
         float direction = 1;
 
-        if (col.gameObject.tag == "Player" && !this.GetComponent<ColoredNonPlayer>().IsSameColor(col.gameObject))
+        if (col.gameObject.tag == "Player")
         {
-            if (col.transform.position.x - transform.position.x < 0)
+            if (!this.GetComponent<ColoredNonPlayer>().IsSameColor(col.gameObject))
             {
-                direction = -1;
+                if (col.transform.position.x - transform.position.x < 0)
+                {
+                    direction = -1;
+                }
+                col.gameObject.GetComponent<Player>().Pushed(direction);
+                col.gameObject.GetComponent<PlayerHealth>().TakeDamage(damages);
             }
-            col.gameObject.GetComponent<Player>().Pushed(direction);
-            col.gameObject.GetComponent<PlayerHealth>().TakeDamage(damages);
+            else
+            {
+                col.gameObject.GetComponent<Player>().FeedPlayer();
+                this.TakeDamage(health);
+            }
         }
     }
 
@@ -59,6 +68,30 @@ public class EnemyPatrol : MonoBehaviour
         if (health <= 0)
         {
             animator.SetBool("Dead", true);
+            CapsuleCollider2D caps = this.GetComponent<CapsuleCollider2D>();
+            if (caps != null)
+            {
+                caps.enabled = false;
+            }
+            BoxCollider2D box = this.GetComponent<BoxCollider2D>();
+            if(box != null)
+            {
+                box.enabled = false;
+            }
+            Invoke("FadeOut", 0.7f);
         }
     }
+
+    private void FadeOut()
+    {
+        Color c = this.transform.GetComponent<SpriteRenderer>().color;
+        this.transform.GetComponent<SpriteRenderer>().color = new Color(c.r, c.g, c.b, 0.8f);
+        Invoke("DestroyObj", 1.0f);
+    }
+
+    private void DestroyObj()
+    {
+        Destroy(this.transform.parent.gameObject);
+    }
+    
 }

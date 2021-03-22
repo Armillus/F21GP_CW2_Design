@@ -18,7 +18,7 @@ public abstract class ColorManager : ScriptableObject
     {
         foreach(ColoredObject obj in coloredObjects)
         {
-            obj.changeColor();
+            if (obj != null) { obj.changeColor(); } // null if destroyed
         }
     }
 

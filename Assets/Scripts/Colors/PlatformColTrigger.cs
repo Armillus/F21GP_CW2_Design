@@ -23,7 +23,6 @@ public class PlatformColTrigger : MonoBehaviour
 
         if (colid != null && colid.CompareTag("Player"))
         {
-            Debug.Log("player");
             playerCollider = colid;
             player = colid.GetComponent<ColoredPlayer>();
             if (player != null && platform != null)

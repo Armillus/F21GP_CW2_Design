@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     public Transform spawnPoint;
     public GameObject bullet;
     public AnimationClip shot;
+    public HungerBar hungBar;
 
     private Vector2 _startScale = Vector2.one;
 
@@ -192,7 +193,6 @@ public class Player : MonoBehaviour
     {
         if (!_shooting)
         {
-            this.GetComponent<ColoredPlayer>().AddAvailableColor(); // TO DELETE
             animator.SetTrigger("Shoot");
             if (transform.localScale.x > 0)
             {
@@ -208,5 +208,10 @@ public class Player : MonoBehaviour
     public void SetspawnPoint(Transform newspawnPoint)
     {
         spawnPoint = newspawnPoint;
+    }
+
+    public void FeedPlayer()
+    {
+        hungBar.IncreaseHungerBarBasic();
     }
 }
