@@ -9,9 +9,7 @@ public class AddColour : MonoBehaviour
     //The heart will delete itself and add an available colour to the player
     void OnTriggerEnter2D()
     {
-        //Debug.Log(other2D);
         this.gameObject.SetActive(false);
         player.GetComponent<ColoredPlayer>().AddAvailableColor();
-        //other2D.GetComponent<ColoredPlayer>().AddAvailableColor();
     }
 }
