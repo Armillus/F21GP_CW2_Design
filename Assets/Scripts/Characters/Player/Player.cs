@@ -17,12 +17,14 @@ public class Player : MonoBehaviour
     public Transform groundCheckLeft;
     public Transform groundCheckRight;
     public Transform firePoint;
+    public Transform spawnPoint;
     public GameObject bullet;
     public AnimationClip shot;
 
     private Vector2 _startScale = Vector2.one;
 
     private float _timeRemaining = 0.5f;
+    private float _timeDead = 1f;
     private float _timeBullet = 0.5f;
 
     private bool _isPushed = false;
@@ -60,9 +62,7 @@ public class Player : MonoBehaviour
         UpdateAnimation();
         if (currentHealth <= 0)
         {
-            //            Destroy(gameObject);
-            Debug.Log("Dead");
-            _dead = true;
+            DeathState();
             return;
         }
         ClickCheck();
@@ -77,6 +77,27 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void DeathState()
+    {
+        _dead = true;
+        if (_timeDead > 0)
+        {
+            _timeDead -= Time.deltaTime;
+        }
+        else
+        {
+            _dead = false;
+            _timeDead = 1f;
+            Revival();
+        }
+    }
+
+    private void Revival()
+    {
+        UpdateAnimation();
+        currentHealth = 10;
+        transform.position = spawnPoint.position;
+    }
 
     private void ClickCheck()
     {
@@ -153,7 +174,7 @@ public class Player : MonoBehaviour
         animator.SetBool("Push", _isPushed);
         animator.SetBool("Dead", _dead);
 
-        if (Input.GetAxis("Horizontal") != 0)
+        if (Input.GetAxis("Horizontal") != 0 && !_isPushed)
             transform.localScale = new Vector2(Mathf.Sign(Input.GetAxis("Horizontal")) * _startScale.x, _startScale.y);
     }   
 
@@ -163,7 +184,7 @@ public class Player : MonoBehaviour
         {
             rb.AddForce(new Vector2(pushForce * direction, 0), ForceMode2D.Impulse);
             _isPushed = true;
-            currentHealth -= 10;
+            currentHealth -= 5;
         }
     }
 
@@ -183,5 +204,9 @@ public class Player : MonoBehaviour
             }
             _shooting = true;
         }
+    }
+    public void SetspawnPoint(Transform newspawnPoint)
+    {
+        spawnPoint = newspawnPoint;
     }
 }

@@ -10,7 +10,14 @@ public class CameraManager : MonoBehaviour
     {
         if (player)
         {
-            transform.position = new Vector3(player.transform.position.x, player.transform.position.y, transform.position.z);
+            if (player.transform.position.y >= 0)
+            {
+                transform.position = new Vector3(player.transform.position.x, player.transform.position.y, transform.position.z);
+            }
+            else
+            {
+                transform.position = new Vector3(player.transform.position.x, 0.0f, transform.position.z);
+            }
         }
     }
 }
