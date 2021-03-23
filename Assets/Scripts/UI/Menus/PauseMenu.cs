@@ -21,6 +21,7 @@ public class PauseMenu : MonoBehaviour
 
     private void Pause()
     {
+        FindObjectOfType<Player>().enabled = false;
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         gameIsPaused = true;
@@ -28,6 +29,8 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
+        FindObjectOfType<Player>().enabled = true;
+        CloseSettings();
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         gameIsPaused = false;

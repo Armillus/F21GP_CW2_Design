@@ -5,13 +5,13 @@ using UnityEngine;
 public class PredatorTracker : MonoBehaviour
 {
     public float speed = 1;
-    public GameObject player;
+    public int damages = 15;
+    public Transform target;
     public Animator animator = null;
     public Rigidbody2D rb = null;
     public Transform leftZonePoint;
     public Transform rightZonePoint;
 
-    private Transform _target;
     private Vector2 _startScale = Vector2.one;
     private float _direction = 1.0f;
     private int health = 10;
@@ -19,22 +19,19 @@ public class PredatorTracker : MonoBehaviour
     void Start()
     {
         _startScale = transform.localScale;
-        _target = player.transform;
     }
 
     void Update()
     {
-        if (health <= 0 || !_target)
+        if (health <= 0 || !target)
         {
             return;
         }
         UpdateAnimation();
         rb.velocity = new Vector2(0.0f, 0.0f);
 
-        if (!NotInArea())
-        {
+        if (IsTargetVisible())
             Move();
-        }
     }
 
     void OnCollisionEnter2D(Collision2D col)
@@ -44,7 +41,7 @@ public class PredatorTracker : MonoBehaviour
             if (!this.GetComponent<ColoredNonPlayer>().IsSameColor(col.gameObject))
             {
                 col.gameObject.GetComponent<Player>().Pushed(_direction);
-                // ADD damages
+                col.gameObject.GetComponent<PlayerHealth>().TakeDamage(damages);
             }
             else
             {
@@ -56,8 +53,8 @@ public class PredatorTracker : MonoBehaviour
 
     private void Move()
     {
-        if (leftZonePoint.position.x < transform.position.x &&
-            transform.position.x < rightZonePoint.position.x)
+        if (transform.position.x >= leftZonePoint.position.x  &&
+            transform.position.x <= rightZonePoint.position.x)
         {
             rb.velocity = new Vector2(_direction * speed, 0.0f);
         }
@@ -67,7 +64,7 @@ public class PredatorTracker : MonoBehaviour
     private void UpdateAnimation()
     {
         animator.SetFloat("SpeedX", Mathf.Abs(rb.velocity.x));
-        if (_target.position.x - transform.position.x > 0)
+        if (target.position.x - transform.position.x > 0)
         {
             _direction = 1;
         }
@@ -85,16 +82,7 @@ public class PredatorTracker : MonoBehaviour
         if (health <= 0)
         {
             animator.SetBool("Dead", true);
-            CapsuleCollider2D caps = this.GetComponent<CapsuleCollider2D>();
-            if (caps != null)
-            {
-                caps.enabled = false;
-            }
-            BoxCollider2D box = this.GetComponent<BoxCollider2D>();
-            if (box != null)
-            {
-                box.enabled = false;
-            }
+            rb.velocity = new Vector2(0f, 0f);
             Invoke("FadeOut", 0.7f);
         }
     }
@@ -114,16 +102,14 @@ public class PredatorTracker : MonoBehaviour
     }
 
 
-    private bool NotInArea()
+    private bool IsTargetVisible()
     {
-        if (leftZonePoint.position.x < _target.position.x && 
-            _target.position.x < rightZonePoint.position.x)
+        if (target.position.x >= leftZonePoint.position.x && 
+            target.position.x <= rightZonePoint.position.x)
         {
-            return false;
+            return target.position.y >= transform.position.y - 1 && target.position.y <= transform.position.y + 1;
         }
-        else
-        {
-            return true;
-        }
+        
+        return false;
     }
 }

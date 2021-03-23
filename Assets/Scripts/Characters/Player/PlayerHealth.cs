@@ -13,6 +13,11 @@ public class PlayerHealth : MonoBehaviour
         healthBar.SetMaxHealth(maxHealth);
     }
 
+    public bool IsOver()
+    {
+        return _currentHealth <= 0;
+    }
+
     public void TakeDamage(int damage)
     {
         healthBar.SetHealth(_currentHealth -= damage);
@@ -20,7 +25,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void Heal(float percents)
     {
-        _currentHealth += (int)(((float) _currentHealth / 100f) * percents);
+        _currentHealth += (int)(((float) maxHealth / 100f) * percents);
         healthBar.SetHealth(_currentHealth);
     }
 }

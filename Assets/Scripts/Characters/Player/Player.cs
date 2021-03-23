@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.EventSystems;
-
+﻿using UnityEngine;
 
 [RequireComponent(typeof(PlayerHealth))]
 public class Player : MonoBehaviour
@@ -36,7 +32,6 @@ public class Player : MonoBehaviour
 
     private int incGround = 5;
     private int nbGround = 5;
-    private int currentHealth = 10;
 
     void Start()
     {
@@ -61,7 +56,7 @@ public class Player : MonoBehaviour
     {
         _isGrounded = Physics2D.OverlapArea(groundCheckLeft.position, groundCheckRight.position);
         UpdateAnimation();
-        if (currentHealth <= 0)
+        if (GetComponent<PlayerHealth>().IsOver())
         {
             DeathState();
             return;
@@ -96,7 +91,7 @@ public class Player : MonoBehaviour
     private void Revival()
     {
         UpdateAnimation();
-        currentHealth = 10;
+        GetComponent<PlayerHealth>().Heal(100f);
         transform.position = spawnPoint.position;
     }
 
@@ -185,7 +180,6 @@ public class Player : MonoBehaviour
         {
             rb.AddForce(new Vector2(pushForce * direction, 0), ForceMode2D.Impulse);
             _isPushed = true;
-            currentHealth -= 5;
         }
     }
 
