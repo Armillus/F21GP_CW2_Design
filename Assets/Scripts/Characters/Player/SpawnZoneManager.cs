@@ -2,16 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AddColour : MonoBehaviour
+public class SpawnZoneManager : MonoBehaviour
 {
-    public GameObject player;
+    private GameObject _player;
+    private Transform _spawnPoint;
     private bool _done;
 
     void Start()
     {
         _done = false;
+        _spawnPoint = gameObject.transform.GetChild(0).gameObject.transform;
+        _player = GameObject.FindGameObjectWithTag("Player");
     }
-    //The heart will delete itself and add an available colour to the player
+
     void OnTriggerEnter2D()
     {
         if (_done)
@@ -20,13 +23,11 @@ public class AddColour : MonoBehaviour
         }
         GameObject[] floors = GameObject.FindGameObjectsWithTag("Floor");
 
-        this.gameObject.SetActive(false);
-        player.GetComponent<ColoredPlayer>().AddAvailableColor();
-        player.GetComponent<Player>().SetspawnPoint(transform);
+        _player.GetComponent<Player>().SetspawnPoint(_spawnPoint);
         foreach (GameObject floor in floors)
         {
             if (floor)
-                floor.GetComponent<RespawnPlayer>().SetspawnPoint(transform);
+                floor.GetComponent<RespawnPlayer>().SetspawnPoint(_spawnPoint);
         }
         _done = true;
     }
