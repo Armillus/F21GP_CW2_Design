@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Parallax : MonoBehaviour
+public class parallax : MonoBehaviour
 {
 
     private Vector2 startpos;
