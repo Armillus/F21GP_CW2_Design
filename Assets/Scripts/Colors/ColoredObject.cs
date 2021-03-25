@@ -22,7 +22,7 @@ public abstract class ColoredObject : MonoBehaviour
     private SpriteRenderer sprite;
 
     // Return the value of the color
-    private Color getColor(Colors c)
+    public Color getColor(Colors c)
     {
         switch (c)
         {
@@ -83,5 +83,9 @@ public abstract class ColoredObject : MonoBehaviour
     public bool IsSameColor(ColoredObject obj)
     {
         return this.getCurrentColor() == obj.getCurrentColor();
+    }
+    public bool IsSameColors(Color obj)
+    {
+        return getColor(this.getCurrentColor()) == obj;
     }
 }

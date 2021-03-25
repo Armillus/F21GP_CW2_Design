@@ -9,7 +9,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField]
     private AudioSource _currentMusic;
 
-    private float _averageLoudness = 0.02f;
+    private float _averageLoudness = 0.0037f;
     private float _timeToWait;
 
     void Start() 
@@ -39,6 +39,8 @@ public class AudioManager : MonoBehaviour
             clipLoudness += Math.Abs(spectrum[i]);
         }
         clipLoudness /= spectrum.Length;
+
+        Debug.Log(clipLoudness);
 
         if (clipLoudness > _averageLoudness)
         {

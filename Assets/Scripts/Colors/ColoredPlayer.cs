@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ColoredPlayer : ColoredObject
 {
-    private int availableColors;
+    public int availableColors;
 
     // meant to be empty because the color of the player doesn't change on the rythm
     public override void changeColor(){}
@@ -14,7 +14,7 @@ public class ColoredPlayer : ColoredObject
         init();
         this.setCurrentColor(Colors.RED);
         applyColor(getCurrentColor());
-        availableColors = 1;
+        //availableColors = 1;
     }
 
     public void ApplyNextColor()
