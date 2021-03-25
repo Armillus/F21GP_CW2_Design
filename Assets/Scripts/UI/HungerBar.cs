@@ -23,14 +23,14 @@ public class HungerBar : MonoBehaviour
 
     public float basicIncrease = 10;
     private int framePause = 360;
-    private int healSpeed = 2;
+    private int healSpeed = 10;
     private int frameReduction = 200;
 
     [Range(1,8)]
     public int reductionSpeed = 1;
 
     public PlayerHealth playerHealth;
-    //public int healPercentage = 5;
+    public float healPercentage = 2.5f;
 
     private int maxCounter;
     private int reduceCounter;
@@ -66,12 +66,16 @@ public class HungerBar : MonoBehaviour
         {
             maxCounter++;
         }
-        if ((1 - value / slider.maxValue) < (float)greenPercentage/100.0f  || healCounter> frameReduction / reductionSpeed)
+        if ((1 - value / slider.maxValue) < (float)greenPercentage/100.0f  || healCounter> healSpeed/2 * frameReduction / reductionSpeed)
         {
             if (healCounter > healSpeed * frameReduction/reductionSpeed)
             {
+                Debug.Log("heal");
                 healCounter = 0;
-                if(playerHealth!=null)playerHealth.Heal(5);
+                if (playerHealth != null && !playerHealth.IsFullLife())
+                {
+                    playerHealth.Heal(healPercentage);
+                }
             }
             else
             {

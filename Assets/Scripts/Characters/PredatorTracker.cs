@@ -82,6 +82,17 @@ public class PredatorTracker : MonoBehaviour
         if (health <= 0)
         {
             animator.SetBool("Dead", true);
+            CapsuleCollider2D caps = this.GetComponent<CapsuleCollider2D>();
+            if (caps != null)
+            {
+                caps.enabled = false;
+            }
+            BoxCollider2D box = this.GetComponent<BoxCollider2D>();
+            if (box != null)
+            {
+                box.enabled = false;
+            }
+            rb.gravityScale = 0;
             rb.velocity = new Vector2(0f, 0f);
             Invoke("FadeOut", 0.7f);
         }
