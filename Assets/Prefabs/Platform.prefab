@@ -82,6 +82,7 @@ GameObject:
   - component: {fileID: 5143397892210122952}
   - component: {fileID: 5143397892210122948}
   - component: {fileID: 5143397892210122949}
+  - component: {fileID: 8851881686266959735}
   m_Layer: 0
   m_Name: Platform
   m_TagString: Untagged
@@ -195,3 +196,21 @@ MonoBehaviour:
   fixedColor: 0
   colorList: 00000000
   isRandom: 0
+--- !u!114 &8851881686266959735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5143397892210122953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6d8ef305c8a0cb4a9f9ab97b3e70418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  insight: A platform on which you can walk only if you're the same color as it.
+  width: 300
+  height: 80
+  fontSize: 20
+  horizontalOffset: -150
+  verticalOffset: 20

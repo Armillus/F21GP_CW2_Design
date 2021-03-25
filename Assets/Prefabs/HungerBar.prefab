@@ -34,7 +34,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: -0.0000076293945, y: 0.000013351}
+  m_AnchoredPosition: {x: 0, y: 0.000013351}
   m_SizeDelta: {x: 82.30911, y: 87.71748}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3828595342093239696
@@ -307,6 +307,8 @@ GameObject:
   - component: {fileID: 3991807095191205772}
   - component: {fileID: 3991807095191205773}
   - component: {fileID: 3991807095191205810}
+  - component: {fileID: 7303490304012426815}
+  - component: {fileID: 3939600565857525958}
   m_Layer: 5
   m_Name: HungerBar
   m_TagString: Untagged
@@ -413,6 +415,49 @@ MonoBehaviour:
   reductionSpeed: 2
   playerHealth: {fileID: 0}
   healPercentage: 2.5
+  healSpeed: 8
+--- !u!114 &7303490304012426815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3991807095191205775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6d8ef305c8a0cb4a9f9ab97b3e70418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  insight: This bar shows your hunger state. If you're hungry, colors will start
+    to fade. You can eat aliens of your color to avoid it!
+  width: 300
+  height: 120
+--- !u!61 &3939600565857525958
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3991807095191205775}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 1
+  serializedVersion: 2
+  m_Size: {x: 250, y: 17}
+  m_EdgeRadius: 0
 --- !u!1 &3991807095576806022
 GameObject:
   m_ObjectHideFlags: 0

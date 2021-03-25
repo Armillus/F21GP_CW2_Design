@@ -108,6 +108,7 @@ GameObject:
   - component: {fileID: 5792538917237460365}
   - component: {fileID: 3097542800386241829}
   - component: {fileID: 901693362961235833}
+  - component: {fileID: 8552486106639782621}
   m_Layer: 0
   m_Name: PredatorGraphics
   m_TagString: Untagged
@@ -232,7 +233,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  player: {fileID: 0}
+  damages: 15
+  target: {fileID: 0}
   animator: {fileID: 5792538917237460367}
   rb: {fileID: 5792538917237460371}
   leftZonePoint: {fileID: 1805202739181563988}
@@ -268,3 +270,22 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 2.2999997, y: 3.9799998}
   m_Direction: 0
+--- !u!114 &8552486106639782621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5792538917237460361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6d8ef305c8a0cb4a9f9ab97b3e70418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  insight: This dangerous predator is an enemy who protects a small space. You can
+    kill him by contact or shot whether you're the same color as him.
+  width: 320
+  height: 120
+  fontSize: 20
+  horizontalOffset: -150
+  verticalOffset: 20

@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
     public float speed = 1;
     public float jumpForce = 1;
     public float pushForce = 1;
+    public int remainingLives = 3;
 
 
     public Rigidbody2D rb = null;
@@ -75,17 +76,19 @@ public class Player : MonoBehaviour
 
     private void DeathState()
     {
-        _dead = true;
         if (_timeDead > 0)
         {
+            _dead = true;
             _timeDead -= Time.deltaTime;
         }
-        else
+        else if (--remainingLives > 0)
         {
             _dead = false;
             _timeDead = 1f;
             Revival();
         }
+        else
+            FindObjectOfType<EndGameMenu>().GameOver();
     }
 
     private void Revival()
@@ -142,7 +145,9 @@ public class Player : MonoBehaviour
 
         rb.velocity = new Vector2(h * speed, rb.velocity.y);
 
-        if (Input.GetAxis("Vertical") > 0 && IsOnFloor())
+        bool wantsToJump = Input.GetAxis("Vertical") > 0 || Input.GetKeyDown(KeyCode.Space);
+
+        if (wantsToJump && IsOnFloor())
         {
             Jump();
             _onGround = false;
@@ -208,4 +213,5 @@ public class Player : MonoBehaviour
     {
         hungBar.IncreaseHungerBarBasic();
     }
+
 }

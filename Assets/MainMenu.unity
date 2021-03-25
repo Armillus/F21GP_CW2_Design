@@ -3242,6 +3242,11 @@ PrefabInstance:
       propertyPath: colorList.Array.data[4]
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 5143397892210122952, guid: 015c4c0fad8a50f418417a8e5a107cdc,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5143397892210122953, guid: 015c4c0fad8a50f418417a8e5a107cdc,
         type: 3}
       propertyPath: m_Name

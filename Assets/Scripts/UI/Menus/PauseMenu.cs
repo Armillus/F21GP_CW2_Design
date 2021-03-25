@@ -19,21 +19,32 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
-    private void Pause()
+    public void Pause()
+    {
+        StopGame();
+        ShowUI();
+        gameIsPaused = true;
+    }
+
+    public void StopGame()
     {
         FindObjectOfType<Player>().enabled = false;
-        pauseMenuUI.SetActive(true);
+        FindObjectOfType<Wheel>().enabled = false;
         Time.timeScale = 0f;
-        gameIsPaused = true;
     }
 
     public void Resume()
     {
-        FindObjectOfType<Player>().enabled = true;
-        CloseSettings();
-        pauseMenuUI.SetActive(false);
-        Time.timeScale = 1f;
+        ResumeGame();
+        HideUI();
         gameIsPaused = false;
+    }
+
+    private void ResumeGame()
+    {
+        FindObjectOfType<Player>().enabled = true;
+        FindObjectOfType<Wheel>().enabled = true;
+        Time.timeScale = 1f;
     }
 
     public void LoadMenu()
@@ -49,5 +60,16 @@ public class PauseMenu : MonoBehaviour
     public void CloseSettings()
     {
         settingsPanel.SetActive(false);
+    }
+
+    private void ShowUI()
+    {
+        pauseMenuUI.SetActive(true);
+    }
+
+    private void HideUI()
+    {
+        CloseSettings();
+        pauseMenuUI.SetActive(false);
     }
 }

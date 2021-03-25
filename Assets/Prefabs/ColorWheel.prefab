@@ -9,6 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6980676652413874756}
+  - component: {fileID: 5295239077775268778}
+  - component: {fileID: 990981927133985128}
   m_Layer: 5
   m_Name: ColorWheel
   m_TagString: Untagged
@@ -37,6 +39,38 @@ RectTransform:
   m_AnchoredPosition: {x: -350.1, y: 172.1}
   m_SizeDelta: {x: 113.80307, y: 113.81723}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!65 &5295239077775268778
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6980676652413874757}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 113, y: 113, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &990981927133985128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6980676652413874757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6d8ef305c8a0cb4a9f9ab97b3e70418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  insight: This wheel is automatically updated when you unlock a color or change
+    your color. There are 5 colors available overall.
+  width: 300
+  height: 100
+  fontSize: 20
+  horizontalOffset: 10
+  verticalOffset: -100
 --- !u!1 &6980676653797711510
 GameObject:
   m_ObjectHideFlags: 0
