@@ -42124,10 +42124,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextSceneToLoad: MainMenu
-  gameOverMenu: {fileID: 0}
-  gameOverSettings: {fileID: 0}
-  winMenu: {fileID: 0}
-  winMenuSettings: {fileID: 0}
+  gameOverMenu: {fileID: 1757725796}
+  gameOverSettings: {fileID: 1757725795}
+  winMenu: {fileID: 1757725794}
+  winMenuSettings: {fileID: 1757725793}
 --- !u!1001 &827185576
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -48868,6 +48868,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feadc72750e9e014a8fc9c190076a91b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1757725793 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3309960319584303800, guid: ab06ea5906257a5429b5cc8bd1dea53a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1757725791}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1757725794 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3309960320455167468, guid: ab06ea5906257a5429b5cc8bd1dea53a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1757725791}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1757725795 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3309960319506183346, guid: ab06ea5906257a5429b5cc8bd1dea53a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1757725791}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1757725796 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3309960320514409446, guid: ab06ea5906257a5429b5cc8bd1dea53a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1757725791}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1765785126
 PrefabInstance:
   m_ObjectHideFlags: 0
