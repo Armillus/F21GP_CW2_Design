@@ -216,12 +216,13 @@ public class Player : MonoBehaviour
         if (GetComponent<PlayerHealth>().IsOver())
         {
             GetComponent<PlayerHealth>().Heal(100f);
+            hungBar.GetComponent<HungerBar>().setBarPercentage(100);
         }
         else
         {
             GetComponent<PlayerHealth>().Hurt(5f);
+            hungBar.GetComponent<HungerBar>().setBarPercentage(50);
         }
-        hungBar.GetComponent<HungerBar>().setBarPercentage(50);
         GameObject wheel = GameObject.Find("ColorWheelImage");
 
         if (wheel)
