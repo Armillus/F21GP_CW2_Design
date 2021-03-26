@@ -25,7 +25,6 @@ public class AudioColor : MonoBehaviour
             sourceAudio.Stop();
             index = 0;
             Invoke("startSong", 1f);
-            //startSong();
         }
     }
 
@@ -42,12 +41,16 @@ public class AudioColor : MonoBehaviour
     private void callColors()
     {
         ColorManager.updateColors();
+        if (!sourceAudio.isPlaying)
+        {
+            nextMusic();
+        }
     }
 
     public void nextMusic()
     {
-        int next = index + 1;
-        if(sourceAudio != null && tracks.Length > next)
+        int next = (index + 1) % tracks.Length;
+        if(sourceAudio != null)
         {
             CancelInvoke();
             sourceAudio.Stop();

@@ -81,4 +81,12 @@ public class Wheel : MonoBehaviour
             ColorRight();
         }
     }
+
+
+    public void SynchroniseToPlayer()
+    {
+        transform.rotation = Quaternion.identity;
+        transform.Rotate(Vector3.forward * rotationDegree / 2);
+        transform.Rotate(Vector3.forward * rotationDegree * (int)player.GetColor());
+    }
 }
