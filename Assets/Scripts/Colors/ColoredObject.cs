@@ -46,9 +46,10 @@ public abstract class ColoredObject : MonoBehaviour
         return currentColor;
     }
 
-    protected void setCurrentColor(Colors c)
+    public void setCurrentColor(Colors c)
     {
         currentColor = c;
+        applyColor(c);
     }
 
     protected void init()
@@ -60,7 +61,7 @@ public abstract class ColoredObject : MonoBehaviour
     // Method called when the color is updated by the time
     public abstract void changeColor();
 
-    public void applyColor(Colors c)
+    protected void applyColor(Colors c)
     {
         sprite.color = getColor(c);
     }

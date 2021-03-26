@@ -212,7 +212,7 @@ public class Player : MonoBehaviour
     public void RespawnPlayer(Transform newPos)
     {
         transform.position = newPos.position;
-        GetComponent<ColoredPlayer>().applyColor(_respawnColor);
+        GetComponent<ColoredPlayer>().setCurrentColor(_respawnColor);
         if (GetComponent<PlayerHealth>().IsOver())
         {
             GetComponent<PlayerHealth>().Heal(100f);
