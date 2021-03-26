@@ -432,6 +432,9 @@ MonoBehaviour:
     to fade. You can eat aliens of your color to avoid it!
   width: 300
   height: 120
+  fontSize: 20
+  horizontalOffset: -150
+  verticalOffset: 20
 --- !u!61 &3939600565857525958
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -442,7 +445,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
