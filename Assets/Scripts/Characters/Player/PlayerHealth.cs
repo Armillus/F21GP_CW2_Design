@@ -38,4 +38,14 @@ public class PlayerHealth : MonoBehaviour
         _currentHealth = Mathf.Min(_currentHealth + extraLife, maxHealth);
         healthBar.SetHealth(_currentHealth);
     }
+    public void Hurt(float percents)
+    {
+        if (_currentHealth <= 0)
+            return;
+
+        int minusLife = (int)((maxHealth / 100f) * percents);
+
+        _currentHealth = Mathf.Max(_currentHealth - minusLife, 0);
+        healthBar.SetHealth(_currentHealth);
+    }
 }

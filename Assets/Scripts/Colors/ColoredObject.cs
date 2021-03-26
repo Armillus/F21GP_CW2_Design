@@ -60,7 +60,7 @@ public abstract class ColoredObject : MonoBehaviour
     // Method called when the color is updated by the time
     public abstract void changeColor();
 
-    protected void applyColor(Colors c)
+    public void applyColor(Colors c)
     {
         sprite.color = getColor(c);
     }

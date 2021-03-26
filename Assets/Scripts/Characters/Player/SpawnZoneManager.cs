@@ -26,7 +26,7 @@ public class SpawnZoneManager : MonoBehaviour
         GameObject[] floors = GameObject.FindGameObjectsWithTag("Floor");
 
         _player.GetComponent<Player>().SetspawnPoint(_spawnPoint);
-        _player.GetComponent<ColoredPlayer>().SetRespawnColor(color);
+        _player.GetComponent<Player>().SetRespawnColor(color);
         foreach (GameObject floor in floors)
         {
             if (floor)

@@ -8,13 +8,13 @@ public class Player : MonoBehaviour
     public float pushForce = 1;
     public int remainingLives = 3;
 
-
     public Rigidbody2D rb = null;
     public Animator animator = null;
     public Transform groundCheckLeft;
     public Transform groundCheckRight;
     public Transform firePoint;
     public Transform spawnPoint;
+    private ColoredObject.Colors _respawnColor = ColoredObject.Colors.RED;
     public GameObject bullet;
     public AnimationClip shot;
     public HungerBar hungBar;
@@ -94,8 +94,7 @@ public class Player : MonoBehaviour
     private void Revival()
     {
         UpdateAnimation();
-        GetComponent<PlayerHealth>().Heal(100f);
-        transform.position = spawnPoint.position;
+        RespawnPlayer(spawnPoint);
     }
 
     private void ClickCheck()
@@ -209,9 +208,35 @@ public class Player : MonoBehaviour
         spawnPoint = newspawnPoint;
     }
 
+    public void RespawnPlayer(Transform newPos)
+    {
+        transform.position = newPos.position;
+        GetComponent<ColoredPlayer>().applyColor(_respawnColor);
+        if (GetComponent<PlayerHealth>().IsOver())
+        {
+            GetComponent<PlayerHealth>().Heal(100f);
+        }
+        else
+        {
+            GetComponent<PlayerHealth>().Hurt(5f);
+        }
+        hungBar.GetComponent<HungerBar>().setBarPercentage(50);
+        GameObject wheel = GameObject.Find("ColorWheelImage");
+
+        if (wheel)
+        {
+            wheel.GetComponent<Wheel>().SynchroniseToPlayer();
+        }
+    }
+
+    public void SetRespawnColor(ColoredObject.Colors newColor)
+    {
+        _respawnColor = newColor;
+    }
+
+
     public void FeedPlayer()
     {
         hungBar.IncreaseHungerBarBasic();
     }
-
 }

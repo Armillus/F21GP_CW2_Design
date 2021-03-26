@@ -14,11 +14,7 @@ public class RespawnPlayer : MonoBehaviour
     {
         if (collider.transform.CompareTag("Player"))
         {
-            //enlever 5%
-            //assigner la couleur
-            //Wheel.SynchroniseToPlayer()
-            //hunger bar à 50
-            collider.transform.position = spawnPoint.position;
+            collider.gameObject.GetComponent<Player>().RespawnPlayer(spawnPoint);
         }
     }
 
