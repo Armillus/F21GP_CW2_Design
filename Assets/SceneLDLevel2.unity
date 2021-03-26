@@ -39401,22 +39401,27 @@ PrefabInstance:
     - target: {fileID: 2336825553980523896, guid: 9a1aa2b34b2a2ea4aa7390147a77032e,
         type: 3}
       propertyPath: colorList.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2336825553980523896, guid: 9a1aa2b34b2a2ea4aa7390147a77032e,
+        type: 3}
+      propertyPath: colorList.Array.data[1]
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2336825553980523896, guid: 9a1aa2b34b2a2ea4aa7390147a77032e,
         type: 3}
       propertyPath: colorList.Array.data[2]
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2336825553980523903, guid: 9a1aa2b34b2a2ea4aa7390147a77032e,
         type: 3}
       propertyPath: m_Color.b
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2336825553980523903, guid: 9a1aa2b34b2a2ea4aa7390147a77032e,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.29411766
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2336825553980523903, guid: 9a1aa2b34b2a2ea4aa7390147a77032e,
         type: 3}
@@ -43808,17 +43813,17 @@ PrefabInstance:
     - target: {fileID: 5143397892210122949, guid: 015c4c0fad8a50f418417a8e5a107cdc,
         type: 3}
       propertyPath: colorList.Array.data[0]
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5143397892210122949, guid: 015c4c0fad8a50f418417a8e5a107cdc,
         type: 3}
       propertyPath: colorList.Array.data[1]
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5143397892210122949, guid: 015c4c0fad8a50f418417a8e5a107cdc,
         type: 3}
       propertyPath: colorList.Array.data[2]
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5143397892210122952, guid: 015c4c0fad8a50f418417a8e5a107cdc,
         type: 3}
@@ -43828,12 +43833,12 @@ PrefabInstance:
     - target: {fileID: 5143397892210122952, guid: 015c4c0fad8a50f418417a8e5a107cdc,
         type: 3}
       propertyPath: m_Color.g
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5143397892210122952, guid: 015c4c0fad8a50f418417a8e5a107cdc,
         type: 3}
       propertyPath: m_Color.r
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5143397892210122953, guid: 015c4c0fad8a50f418417a8e5a107cdc,
         type: 3}
@@ -47061,7 +47066,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.03950119, y: 0.091929436}
@@ -51407,7 +51412,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2038203213}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 61.06, y: 8.6, z: 0}
+  m_LocalPosition: {x: 61.43, y: 8.6, z: 0}
   m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -51439,27 +51444,27 @@ PrefabInstance:
     - target: {fileID: 5143397892210122949, guid: 015c4c0fad8a50f418417a8e5a107cdc,
         type: 3}
       propertyPath: colorList.Array.data[0]
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5143397892210122949, guid: 015c4c0fad8a50f418417a8e5a107cdc,
         type: 3}
       propertyPath: colorList.Array.data[1]
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5143397892210122949, guid: 015c4c0fad8a50f418417a8e5a107cdc,
         type: 3}
       propertyPath: colorList.Array.data[2]
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5143397892210122952, guid: 015c4c0fad8a50f418417a8e5a107cdc,
         type: 3}
       propertyPath: m_Color.b
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5143397892210122952, guid: 015c4c0fad8a50f418417a8e5a107cdc,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.29411766
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5143397892210122952, guid: 015c4c0fad8a50f418417a8e5a107cdc,
         type: 3}
