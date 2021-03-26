@@ -10,11 +10,12 @@ public class RespawnPlayer : MonoBehaviour
     {
         spawnPoint = newspawnPoint;
     }
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collision.transform.CompareTag("Player"))
+        if (collider.transform.CompareTag("Player"))
         {
-            collision.transform.position = spawnPoint.position;
+            collider.transform.position = spawnPoint.position;
         }
     }
+
 }
