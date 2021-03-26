@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SpawnZoneManager : MonoBehaviour
 {
+    public ColoredObject.Colors color;
+
     private GameObject _player;
     private Transform _spawnPoint;
     private bool _done;
@@ -24,6 +26,7 @@ public class SpawnZoneManager : MonoBehaviour
         GameObject[] floors = GameObject.FindGameObjectsWithTag("Floor");
 
         _player.GetComponent<Player>().SetspawnPoint(_spawnPoint);
+        _player.GetComponent<ColoredPlayer>().SetRespawnColor(color);
         foreach (GameObject floor in floors)
         {
             if (floor)

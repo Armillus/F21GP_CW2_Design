@@ -15,6 +15,10 @@ public class RespawnPlayer : MonoBehaviour
         if (collision.transform.CompareTag("Player"))
         {
             collision.transform.position = spawnPoint.position;
+            //enlever 5%
+            //assigner la couleur
+            //Wheel.SynchroniseToPlayer()
+            //hunger bar à 50
         }
     }
 }

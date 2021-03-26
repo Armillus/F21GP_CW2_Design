@@ -6,6 +6,9 @@ public class ColoredPlayer : ColoredObject
 {
     public int availableColors;
 
+    private Colors _respawnColor = Colors.RED;
+
+
     // meant to be empty because the color of the player doesn't change on the rythm
     public override void changeColor(){}
 
@@ -66,5 +69,10 @@ public class ColoredPlayer : ColoredObject
     public int GetNumAvailableColors()
     {
         return availableColors;
+    }
+
+    public void SetRespawnColor(Colors newColor)
+    {
+        _respawnColor = newColor;
     }
 }

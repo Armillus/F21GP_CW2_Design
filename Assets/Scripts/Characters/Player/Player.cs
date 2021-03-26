@@ -145,7 +145,7 @@ public class Player : MonoBehaviour
 
         rb.velocity = new Vector2(h * speed, rb.velocity.y);
 
-        bool wantsToJump = Input.GetAxis("Vertical") > 0 || Input.GetKeyDown(KeyCode.Space);
+        bool wantsToJump = Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space);
 
         if (wantsToJump && IsOnFloor())
         {
