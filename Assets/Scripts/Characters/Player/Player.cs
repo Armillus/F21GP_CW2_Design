@@ -55,8 +55,8 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        _isGrounded = Physics2D.OverlapCircle(groundCheckRight.position, 0.01f) && Physics2D.OverlapCircle(groundCheckLeft.position, 0.01f);
-        //_isGrounded = Physics2D.OverlapArea(groundCheckLeft.position, groundCheckRight.position);
+        //_isGrounded = Physics2D.OverlapCircle(groundCheckRight.position, 0.01f) && Physics2D.OverlapCircle(groundCheckLeft.position, 0.01f);
+        _isGrounded = Physics2D.OverlapArea(groundCheckLeft.position, groundCheckRight.position);
         UpdateAnimation();
         if (GetComponent<PlayerHealth>().IsOver())
         {
