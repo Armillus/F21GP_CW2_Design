@@ -11,13 +11,15 @@ public class EndGameMenu : MonoBehaviour
 
     public void Retry()
     {
-        Scene scene = SceneManager.GetActiveScene(); 
-        
+        Scene scene = SceneManager.GetActiveScene();
+
+        Time.timeScale = 1f;
         SceneManager.LoadScene(scene.name);
     }
 
     public void Continue()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene(nextSceneToLoad);
     }
 
