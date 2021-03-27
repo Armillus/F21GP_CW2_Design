@@ -132,6 +132,7 @@ public class HungerBar : MonoBehaviour
     public void setBarPercentage(int percentage)
     {
         slider.value = Mathf.Min(slider.maxValue, slider.maxValue*((float)percentage)/100f);
+        postProcess.weight = Mathf.Max(1 - (slider.value / slider.maxValue) / ((float)redPercentage / 100.0f), 0);
     }
 
 }
