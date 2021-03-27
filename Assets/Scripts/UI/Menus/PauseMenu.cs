@@ -30,6 +30,7 @@ public class PauseMenu : MonoBehaviour
     {
         FindObjectOfType<Player>().enabled = false;
         FindObjectOfType<Wheel>().enabled = false;
+        FindObjectOfType<AudioSource>().Pause();
         Time.timeScale = 0f;
     }
 
@@ -44,6 +45,7 @@ public class PauseMenu : MonoBehaviour
     {
         FindObjectOfType<Player>().enabled = true;
         FindObjectOfType<Wheel>().enabled = true;
+        FindObjectOfType<AudioSource>().Play();
         Time.timeScale = 1f;
     }
 
