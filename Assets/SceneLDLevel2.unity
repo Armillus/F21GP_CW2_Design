@@ -1345,11 +1345,11 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1561156269}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &214983752
+--- !u!114 &214983752 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 1594040509826828094, guid: 05493c2836007c14b85ec2423780b296,
+    type: 3}
+  m_PrefabInstance: {fileID: 1561156269}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 214983744}
   m_Enabled: 1
@@ -1357,8 +1357,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 030589fd12844a14b80772d1257da7eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBar: {fileID: 689297113}
-  maxHealth: 100
 --- !u!1001 &229984534
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46958,6 +46956,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1594040509826828094, guid: 05493c2836007c14b85ec2423780b296,
+        type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 689297113}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 05493c2836007c14b85ec2423780b296, type: 3}
 --- !u!114 &1561156270 stripped
@@ -48399,7 +48402,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1739505512}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 73, y: 21.5, z: 0}
+  m_LocalPosition: {x: 73, y: 22, z: 0}
   m_LocalScale: {x: 0.65, y: 0.65, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -48597,7 +48600,7 @@ PrefabInstance:
     - target: {fileID: 1635396672235769529, guid: ab06ea5906257a5429b5cc8bd1dea53a,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -42.199997
+      value: -42.200012
       objectReference: {fileID: 0}
     - target: {fileID: 1635396672431318898, guid: ab06ea5906257a5429b5cc8bd1dea53a,
         type: 3}
@@ -48749,6 +48752,11 @@ PrefabInstance:
       propertyPath: playerHealth
       value: 
       objectReference: {fileID: 214983752}
+    - target: {fileID: 2438602427195581227, guid: ab06ea5906257a5429b5cc8bd1dea53a,
+        type: 3}
+      propertyPath: basicIncrease
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 2438602427195581227, guid: ab06ea5906257a5429b5cc8bd1dea53a,
         type: 3}
       propertyPath: healPercentage
@@ -49475,6 +49483,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1261022074}
     m_Modifications:
+    - target: {fileID: 8878300106785874048, guid: 992af17da91b3da41944ba18b4db87f7,
+        type: 3}
+      propertyPath: sharedProfile
+      value: 
+      objectReference: {fileID: 11400000, guid: b802cf93f446c7c4b99cfb01bacc1011,
+        type: 2}
     - target: {fileID: 8878300106785874049, guid: 992af17da91b3da41944ba18b4db87f7,
         type: 3}
       propertyPath: m_RootOrder

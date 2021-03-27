@@ -282,8 +282,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6d8ef305c8a0cb4a9f9ab97b3e70418, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  insight: This dangerous predator is an enemy who protects a small space. You can
-    kill him by contact or shot whether you're the same color as him.
+  insight: This dangerous predator is an enemy who protects a small space. With the
+    same colour, you can kill him by contact, and shoot him if you're a different
+    one.
   width: 320
   height: 120
   fontSize: 20

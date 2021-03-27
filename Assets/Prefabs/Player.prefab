@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 224331934392439132}
   - component: {fileID: 224331934392439129}
   - component: {fileID: 224331934392439130}
+  - component: {fileID: 1594040509826828094}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -145,13 +146,16 @@ MonoBehaviour:
   speed: 5
   jumpForce: 8
   pushForce: 2
+  remainingLives: 3
   rb: {fileID: 224331934392439131}
   animator: {fileID: 224331934392439133}
   groundCheckLeft: {fileID: 224331935566086792}
   groundCheckRight: {fileID: 224331935147638017}
   firePoint: {fileID: 224331934625067807}
+  spawnPoint: {fileID: 0}
   bullet: {fileID: 1588779121865233816, guid: d9840751f70e8234fbb8dcbcf926fcd4, type: 3}
   shot: {fileID: 7400000, guid: 4c200bc7db458674eb22818abb3d263c, type: 2}
+  hungBar: {fileID: 0}
 --- !u!114 &224331934392439129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,6 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 449c8d16335ce7548a9029d57d26fa24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  availableColors: 0
 --- !u!70 &224331934392439130
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -180,6 +185,20 @@ CapsuleCollider2D:
   m_Offset: {x: -0.082960725, y: 0.040164143}
   m_Size: {x: 1.9312835, y: 3.069672}
   m_Direction: 0
+--- !u!114 &1594040509826828094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 224331934392439121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 030589fd12844a14b80772d1257da7eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBar: {fileID: 0}
+  maxHealth: 100
 --- !u!1 &224331934625067806
 GameObject:
   m_ObjectHideFlags: 0
