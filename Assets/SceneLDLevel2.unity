@@ -41799,6 +41799,11 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: 5.037281
       objectReference: {fileID: 0}
+    - target: {fileID: 9025236346086071645, guid: 701526dc4bd049f45bd8906fafe8c6b8,
+        type: 3}
+      propertyPath: color
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 701526dc4bd049f45bd8906fafe8c6b8, type: 3}
 --- !u!4 &773371908 stripped
